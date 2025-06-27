@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Correo Temporal Empresaryada</title>
+  <script defer src="main.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white flex justify-center items-center min-h-screen">
+  <div class="bg-gray-800 p-6 rounded-xl w-full max-w-xl text-center shadow-lg">
+    <h1 class="text-3xl font-bold mb-4">TMail Empresaryada</h1>
+    <p class="mb-2">Tu dirección de correo electrónico temporal</p>
+
+    <div class="flex items-center gap-2">
+      <input type="text" id="emailDisplay" readonly value="Cargando..." class="bg-gray-700 p-2 rounded w-full" />
+      <button onclick="copyEmail()" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded">📋</button>
+    </div>
+
+    <div class="flex justify-between mt-4">
+      <button onclick="generateEmail()" class="bg-purple-500 px-4 py-2 rounded hover:bg-purple-600">Nuevo</button>
+      <button onclick="refreshInbox()" class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">Actualizar</button>
+      <button onclick="deleteEmail()" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">Borrar</button>
+    </div>
+
+    <div id="inbox" class="mt-6 bg-gray-700 p-4 rounded max-h-64 overflow-y-auto">
+      <p class="text-gray-300">Aquí aparecerán los correos recibidos...</p>
+    </div>
+  </div>
+</body>
+</html>
