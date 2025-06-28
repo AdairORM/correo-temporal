@@ -1,4 +1,4 @@
-const backendUrl = 'https://correo-temporal-api.onrender.com'; // más adelante lo usaremos
+const backendUrl = 'https://correo-temporal.onrender.com'; // más adelante lo usaremos
 
 let currentEmail = "";
 
