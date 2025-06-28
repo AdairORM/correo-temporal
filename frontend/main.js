@@ -9,6 +9,9 @@ function generateEmail() {
       currentEmail = data.email;
       document.getElementById("emailDisplay").value = currentEmail;
       loadInbox();
+    })
+    .catch(err => {
+      console.error("Error al generar correo:", err);
     });
 }
 
