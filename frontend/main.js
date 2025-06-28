@@ -28,7 +28,7 @@ function loadInbox() {
       const inbox = document.getElementById("inbox");
       inbox.innerHTML = "";
 
-      if (data.messages.length === 0) {
+      if (!data.messages || data.messages.length === 0) {
         inbox.innerHTML = "<p class='text-gray-300'>Sin correos nuevos.</p>";
         return;
       }
@@ -39,8 +39,14 @@ function loadInbox() {
         div.innerHTML = `<strong>${msg.from}</strong><br>${msg.subject}<br><small>${msg.date}</small>`;
         inbox.appendChild(div);
       });
+    })
+    .catch(err => {
+      const inbox = document.getElementById("inbox");
+      inbox.innerHTML = `<p class='text-red-500'>Error al cargar los correos.</p>`;
+      console.error("Error al cargar bandeja:", err);
     });
 }
+
 
 function deleteEmail() {
   if (!currentEmail) return;
@@ -55,3 +61,7 @@ function deleteEmail() {
 function copyEmail() {
   navigator.clipboard.writeText(document.getElementById("emailDisplay").value);
 }
+
+window.onload = () => {
+  generateEmail();
+};
